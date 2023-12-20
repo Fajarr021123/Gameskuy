@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesKuy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #3887BE;
+        }
+
+        .games {
+            text-align: center;
+        }
+
+        .h1, .h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #333;
+            font-weight: bold;
+        }
+        .p{
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #fcfcfc;
+            font-weight: bold;
+        }
+        .p1{
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #fcfcfc;
+            font-weight: bold;
+            font-size: 25px;
+        }
+        .dropdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .card {
+            max-width: 30rem;
+            border-radius: 1rem;
+            background-color: #333;
+            padding: 1rem;
+            flex: 1 1 calc(50% - 20px);
+            margin: 0 10px;
+        }
+
+        .infos {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 20px;
+        }
+
+        .image {
+            height: 10rem;
+            width: 15rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(to bottom right, rgb(118, 36, 194), rgb(185, 128, 240));
+        }
+
+        .info {
+            height: 7rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
+        }
+
+        .stats {
+            width: 100%;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 1);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .request {
+            margin-top: 1.5rem;
+            width: 100%;
+            border: 1px solid transparent;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            transition: all .3s ease;
+        }
+
+        .request:hover {
+            background-color: #4CB9E7;
+            color: #fff;
+        }
+        .center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.searchBox {
+  display: flex;
+  max-width: 300px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  background: #2f3640;
+  border-radius: 50px;
+  position: relative;
+  height:50px;
+  
+}
+
+.searchButton {
+  color: white;
+  position: absolute;
+  right: 8px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--gradient-2, linear-gradient(90deg, #2AF598 0%, #009EFD 100%));
+  border: 0;
+  display: inline-block;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+}
+/*hover effect*/
+button:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.5) 0 10px 20px;
+  transform: translateY(-3px);
+}
+/*button pressing effect*/
+button:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  padding: 24px 46px 24px 26px;
+}
+.navbar {
+        background-color: #333 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="games">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">GamesKuy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="search.html">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <br>
+        <br>
+        <h1 class="h1">Cari Game Terbaik Anda</h1>
+        <!-- Dropdown Container -->
+        <p>Jenis pencarian:</p>
+        <div class="dropdown-container">
+            <select id="searchType" class="form-select" style="max-width: 300px; border-radius: 20px; background-color: #2f3640 ;  color: #ffffff">
+                <option value="category">Kategori</option>
+                <option value="platform" >Platform</option>
+            </select>
+        </div>
+
+        <div class="center-container">
+            <div class="searchBox">
+                <input class="searchInput" type="text" id="searchValue"  placeholder="Search something">
+                <button class="searchButton" onclick="searchGames()">
+                      
+    
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" viewBox="0 0 29 29" fill="none">
+      <g clip-path="url(#clip0_2_17)">
+        <g filter="url(#filter0_d_2_17)">
+          <path d="M23.7953 23.9182L19.0585 19.1814M19.0585 19.1814C19.8188 18.4211 20.4219 17.5185 20.8333 16.5251C21.2448 15.5318 21.4566 14.4671 21.4566 13.3919C21.4566 12.3167 21.2448 11.252 20.8333 10.2587C20.4219 9.2653 19.8188 8.36271 19.0585 7.60242C18.2982 6.84214 17.3956 6.23905 16.4022 5.82759C15.4089 5.41612 14.3442 5.20435 13.269 5.20435C12.1938 5.20435 11.1291 5.41612 10.1358 5.82759C9.1424 6.23905 8.23981 6.84214 7.47953 7.60242C5.94407 9.13789 5.08145 11.2204 5.08145 13.3919C5.08145 15.5634 5.94407 17.6459 7.47953 19.1814C9.01499 20.7168 11.0975 21.5794 13.269 21.5794C15.4405 21.5794 17.523 20.7168 19.0585 19.1814Z" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" shape-rendering="crispEdges"></path>
+        </g>
+      </g>
+      <defs>
+        <filter id="filter0_d_2_17" x="-0.418549" y="3.70435" width="29.7139" height="29.7139" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+          <feFlood flood-opacity="0" result="BackgroundImageFix"></feFlood>
+          <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"></feColorMatrix>
+          <feOffset dy="4"></feOffset>
+          <feGaussianBlur stdDeviation="2"></feGaussianBlur>
+          <feComposite in2="hardAlpha" operator="out"></feComposite>
+          <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"></feColorMatrix>
+          <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_2_17"></feBlend>
+          <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_2_17" result="shape"></feBlend>
+        </filter>
+        <clipPath id="clip0_2_17">
+          <rect width="28.0702" height="28.0702" fill="white" transform="translate(0.403503 0.526367)"></rect>
+        </clipPath>
+      </defs>
+    </svg>
+                </button>
+            </div>
+    
+        </div>
+
+        
+       
+        <div id="searchResults" class="card-container"></div>
+    </div>
+
+    <script>
+        function displayGames(response) {
+            $('#searchResults').html('');
+            if (response.length > 0) {
+                response.forEach(function(game) {
+                    $('#searchResults').append(`
+                        <div class="card">
+                            <div class="infos">
+                                <img class="image" src="${game.thumbnail}" alt="${game.title} Poster">
+                                <div class="info">
+                                    <p class="p1">${game.title}</p>
+                                    <p class="p">Release Date:${game.release_date} </p>
+                                    
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <p>Short Description <span class="state-value">${game.short_description}</span> </p>
+                            </div>
+                            <button class="request" type="button" onclick="window.open('${game.game_url}', '_blank')">
+                                Buka Game
+                            </button>
+                        </div>
+                    `);
+                });
+            } else {
+                $('#searchResults').append('<p>Maaf, pencarian Anda tidak ditemukan.</p>');
+            }
+        }
+
+        function searchGames() {
+            const searchType = $('#searchType').val();
+            const searchValue = $('#searchValue').val();
+
+            const settings = {
+                async: true,
+                crossDomain: true,
+                url: `https://free-to-play-games-database.p.rapidapi.com/api/games?${searchType}=${searchValue}`,
+                method: 'GET',
+                headers: {
+                    'X-RapidAPI-Key': 'f4e7cc704dmshb8b7ac15439676ep1235eejsn9e186f8dc2a4',
+                    'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+                }
+            };
+
+            $.ajax(settings).done(function(response) {
+        displayGames(response);
+    }).fail(function() {
+        $('#searchResults').html('<p>Maaf, pencarian Anda tidak ditemukan.</p>');
+    });
+        }
+    </script>
+</body>
+
+</html>

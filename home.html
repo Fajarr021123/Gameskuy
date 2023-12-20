@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GamesKuy</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
+    <style>
+        body {
+            background-color: #3887BE;
+        }
+
+        .games {
+            text-align: center;
+        }
+
+        .h1, .h2 {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #5D3587;
+            font-weight: bold;
+            font-size: 40px;
+        }
+
+        .p {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #fcfcfc;
+            font-weight: bold;
+        }
+
+        .p1 {
+            font-family: 'Courier New', Courier, monospace;
+            font-style: normal;
+            color: #fcfcfc;
+            font-weight: bold;
+            font-size: 25px;
+        }
+
+        .dropdown-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .slide-and-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    background-image: url('bg2.png'); 
+    background-size:40%; 
+    background-repeat:repeat; 
+    background-position: center center; 
+}
+        .slider img {
+            border-radius: 20px;
+    max-width: 120%;
+    height: 23rem;
+    display: block; 
+    margin: 0 auto;
+        }
+        .games-title {
+            text-align: right;
+            flex: 1;
+        }
+
+        .slide {
+            max-width: 50%;
+            height: 25rem;
+            border-radius: 1rem;
+            background-color: #333;
+            padding: 1rem;
+            flex: 0 1 50%;
+            margin: 0 10px;
+            margin-left: 10rem;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .garis {
+        max-width: 80%;
+        height: 5px;
+        border-radius: 1rem;
+        background-color: #333;
+        margin-left: 10%;
+        margin-right: 10%;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 32px rgba(0, 0, 0, 0.2);
+        flex: 1 1 auto; 
+        }
+
+
+        .card {
+            max-width: 30rem;
+            border-radius: 1rem;
+            background-color: #333;
+            padding: 1rem;
+            flex: 1 1 calc(50% - 20px);
+            margin: 0 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2), 0 12px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        .infos {
+            display: flex;
+            gap: 1rem;
+            padding-bottom: 20px;
+        }
+
+        .image {
+            height: 10rem;
+            width: 15rem;
+            border-radius: 0.5rem;
+            background: linear-gradient(to bottom right, rgb(118, 36, 194), rgb(185, 128, 240));
+        }
+
+        .info {
+            height: 7rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            font-family: 'Courier New', Courier, monospace;
+            color: #fff;
+        }
+
+        .stats {
+            width: 100%;
+            border-radius: 0.5rem;
+            background-color: rgba(255, 255, 255, 1);
+            padding: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            line-height: 1rem;
+            color: rgba(0, 0, 0, 1);
+        }
+
+        .request {
+            margin-top: 1.5rem;
+            width: 100%;
+            border: 1px solid transparent;
+            border-radius: 0.5rem;
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            line-height: 1.5rem;
+            transition: all .3s ease;
+        }
+
+        .request:hover {
+            background-color:#4CB9E7;
+            color: #fff;
+        }
+
+        .center-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .navbar {
+        background-color: #333 !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="games">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">GamesKuy</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="home.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="search.html">Search</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <br>
+        <br>
+        <div class="slide-and-title">
+            <div class="slide">
+                <div class="slider">
+                    <div><img src="https://www.freetogame.com/g/466/thumbnail.jpg" alt="Image 1"></div>
+                    <div><img src="https://www.freetogame.com/g/521/thumbnail.jpg" alt="Image 2"></div>
+                    <div><img src="https://www.freetogame.com/g/516/thumbnail.jpg" alt="Image 3"></div>
+                    <div><img src="https://www.freetogame.com/g/475/thumbnail.jpg" alt="Image 4"></div>
+                </div>
+            </div>
+            <div class="games-title">
+                <div class="center-container">
+                    <dotlottie-player src="https://lottie.host/0abea6c6-84f8-4a1f-9f85-27f7b20e1abc/4aXCIUbxG7.json" background="transparent" speed="1" style="width: 500px; height: 500px;" loop autoplay></dotlottie-player>
+                </div>
+            </div>
+        </div>
+        <div class="garis"></div>
+        <div id="searchResults" class="card-container"></div>
+    </div>
+
+    <script>
+        function displayGames(response) {
+            $('#searchResults').html('');
+            if (response.length > 0) {
+                response.forEach(function(game) {
+                    $('#searchResults').append(`
+                        <div class="card">
+                            <div class="infos">
+                                <img class="image" src="${game.thumbnail}" alt="${game.title} Poster">
+                                <div class="info">
+                                    <p class="p1">${game.title}</p>
+                                    <p class="p">Release Date: ${game.release_date}</p>
+                                </div>
+                            </div>
+                            <div class="stats">
+                                <p>Short Description <span class="state-value">${game.short_description}</span></p>
+                            </div>
+                            <button class="request" type="button" onclick="window.open('${game.game_url}', '_blank')">
+                                Buka Game
+                            </button>
+                        </div>
+                    `);
+                });
+            } else {
+                $('#searchResults').append('<p>Maaf, pencarian Anda tidak ditemukan.</p>');
+            }
+        }
+
+        const settings = {
+            async: true,
+            crossDomain: true,
+            url: `https://free-to-play-games-database.p.rapidapi.com/api/games`,
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'f4e7cc704dmshb8b7ac15439676ep1235eejsn9e186f8dc2a4',
+                'X-RapidAPI-Host': 'free-to-play-games-database.p.rapidapi.com'
+            }
+        };
+
+        $.ajax(settings).done(function(response) {
+            displayGames(response);
+        });
+        $(document).ready(function(){
+            $('.slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            });
+        });
+    </script>
+</body>
+
+</html>
